@@ -52,6 +52,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color: #1a1a1a;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: 250ms ease-in;
@@ -59,13 +60,15 @@ button {
 
 button:hover,
 button:focus {
-  background-color: rgba(74, 231, 179, 0.963);
+  color: #090909;
+  background-color: rgba(46, 233, 170, 0.963);
 }
 
 input {
   height: 20px;
   padding: 8px 10px;
   border: 1px solid grey;
+  background-color: inherit;
   border-radius: 5px;
   cursor: pointer;
   transition: box-shadow 300ms linear;
