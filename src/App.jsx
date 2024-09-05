@@ -1,35 +1,23 @@
-import SearchBox from './components/SearchBox/SearchBox';
-import ContactList from './components/ContactList/ContactList';
-import ContactForm from './components/ContactForm/ContactForm';
-import Loader from './components/Loader/Loader';
 import './App.css';
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage/HomePage';
 
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {selectLoader} from './redux/contactsSlice';
-import { fetchContacts } from './redux/contactsOps';
+import { Route, Routes } from 'react-router-dom';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 const App = () => {
-  //-------------------------------------- /
-  const dispatch = useDispatch();
-
-  // Задіспатчили санку після рендеру сторінки
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  // Підписалися на state  зі Store
-  const isLoading = useSelector(selectLoader);
- 
-  //-------------------------------------- /
-
   return (
     <>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {isLoading && <Loader />}
-      <ContactList />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Routes>
+      </Layout>
     </>
   );
 };

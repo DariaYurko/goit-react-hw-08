@@ -13,32 +13,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 *:focus {
   outline: transparent;
 }
 
 a {
+  color: aquamarine;
   font-weight: 500;
-  color: #3d933b;
   text-decoration: inherit;
 }
 
 a:hover,
 a:focus {
-  color: #286027;
+  color: #fafafa;
   transition: 250ms ease-in;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
+header {
+  padding: 20px 0px;
+  border-bottom: 1px solid;
+  margin-bottom: 50px;
+}
+
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -53,7 +63,7 @@ button {
   font-weight: 500;
   font-family: inherit;
   color: #1a1a1a;
-  background-color: #1a1a1a;
+  background-color: aquamarine;
   cursor: pointer;
   transition: 250ms ease-in;
 }
@@ -61,17 +71,24 @@ button {
 button:hover,
 button:focus {
   color: #090909;
-  background-color: rgba(46, 233, 170, 0.963);
+  background-color: rgba(54, 143, 114, 0.963);
+}
+
+
+label {
+  cursor: pointer;
 }
 
 input {
-  height: 20px;
+  height: 40px;
   padding: 8px 10px;
   border: 1px solid grey;
   background-color: inherit;
   border-radius: 5px;
   cursor: pointer;
   transition: box-shadow 300ms linear;
+  min-width: 300px;
+  font-size: 16px;
 }
 
 @media (prefers-color-scheme: light) {

@@ -8,6 +8,7 @@ export const fetchContacts = createAsyncThunk(
     try {
       const { data } = await axios.get(
         'https://66d005b1181d059277dcefe5.mockapi.io/contacts'
+        // 'https://https://connections-api.goit.global/contacts'
       );
       // console.log('data', data);
       return data; // data потрапить в action.payload
