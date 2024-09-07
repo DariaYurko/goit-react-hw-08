@@ -5,12 +5,3 @@
    column-gap: 10px;
 }
 
-.button {
-   background-color: aquamarine;
-   border: none;
-   transition: 250ms ease-in;
-}
-
-.button:hover {
-   background-color: rgba(74, 231, 179, 0.963);
-}

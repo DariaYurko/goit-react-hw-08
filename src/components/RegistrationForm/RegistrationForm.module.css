@@ -18,11 +18,6 @@
     font-weight: 600;
 }
 
-.button {
-    border: none;
-    transition: 250ms ease-in;
-}
-
 
 .field {
     padding: 8px 10px;

@@ -1,16 +1,14 @@
-import { FaUserCircle } from 'react-icons/fa';
-import { AiFillPhone } from 'react-icons/ai';
-
 import css from './Contact.module.css';
-
 import { useDispatch } from 'react-redux';
+import { AiFillPhone } from 'react-icons/ai';
+import { FaUserCircle } from 'react-icons/fa';
 import { deleteContact } from '../../redux/contacts/operations';
 
 const Contact = ({ contactId, name, phone }) => {
   const dispatch = useDispatch();
 
+  // Відправка запиту по кліку
   const handleClick = contactId => {
-    // Відправка запиту
     const thunk = deleteContact(contactId);
     dispatch(thunk);
   };

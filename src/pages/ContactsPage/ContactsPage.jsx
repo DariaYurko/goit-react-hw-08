@@ -9,9 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectLoader } from '../../redux/contacts/selectors';
 import { fetchContacts } from '../../redux/contacts/operations';
 
+
 const ContactsPage = () => {
   //-------------------------------------- /
   const dispatch = useDispatch();
+  // const token = useSelector(selectAuthToken);
 
   // Задіспатчили санку після рендеру сторінки
   useEffect(() => {
@@ -27,6 +29,7 @@ const ContactsPage = () => {
       <ContactForm />
       <SearchBox />
       {isLoading && <Loader />}
+
       <ContactList />
     </main>
   );
