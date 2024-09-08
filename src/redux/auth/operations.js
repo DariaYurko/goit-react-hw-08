@@ -69,24 +69,24 @@ export const refreshUser = createAsyncThunk(
       const token = state.auth.token;
       setHeaders(token);
       const { data } = await instance.get('/users/current');
-      // console.log(data);
+      console.log(state);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
+  },
+  // перед запуском санки перевіриться умова на наявність токена,
+  // якщо condition повертє true - санка виконається, інакше ні
+  {
+    condition: (_, thunkApi) => {
+      const state = thunkApi.getState();
+      const token = state.auth.token;
+      if (token) {
+        return true;
+      }
+      return false;
+    }
   }
-  // // перед запуском санки перевіриться умова на наявність токена,
-  // // якщо condition повертє true - санка виконається, інакше ні
-  // {
-  //   condition: (_, thunkApi) => {
-  //     const state = thunkApi.getState();
-  //     const token = state.auth.token;
-  //     if (token) {
-  //       return true;
-  //     }
-  //     return false;
-  //   }
-  // }
 );
 
 /**

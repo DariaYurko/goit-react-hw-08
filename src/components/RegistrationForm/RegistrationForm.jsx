@@ -99,7 +99,7 @@ const RegistrationForm = () => {
           <button type="submit" className={css.button}>
             Registration
           </button>
-          {error && <p>{error}</p>}
+          {error && <p>User already exists</p>}
         </Form>
       </Formik>
     </main>

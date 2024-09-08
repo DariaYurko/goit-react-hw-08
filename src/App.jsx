@@ -9,7 +9,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from './redux/auth/operations';
-import { selectAuthToken } from './redux/auth/selectors';
+import { selectAuthIsRefreshing } from './redux/auth/selectors';
 import { RestrictedRoute } from './components/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
@@ -17,14 +17,17 @@ import NotFound from './components/NotFound/NotFound';
 const App = () => {
   
   const dispatch = useDispatch();
-  const token = useSelector(selectAuthToken);
+  const isRefreshing = useSelector(selectAuthIsRefreshing);
+  // const token = useSelector(selectAuthToken);
 
   useEffect(() => {
     // перед запуском санки перевіриться умова на наявність токена,
     // якщо токен є то санка виконається інакше ні
-    if (!token) return;
+    // if (!token) return;
     dispatch(refreshUser());
-  }, [dispatch, token]);
+  }, [dispatch]);
+
+  if (isRefreshing) return <p>User is refreshing.</p>
   
   return (
     <>

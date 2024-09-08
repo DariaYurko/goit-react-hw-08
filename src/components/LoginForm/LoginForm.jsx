@@ -4,7 +4,7 @@ import css from './LoginForm.module.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/operations';
-import { selectAuthError, selectAuthIsLoggedIn } from '../../redux/auth/selectors';
+import { selectAuthError } from '../../redux/auth/selectors';
 
 const INITIAL_VALUES = {
   useremail: '',
@@ -22,8 +22,8 @@ const LoginValidationSchema = Yup.object().shape({
 const LoginForm = () => {
   const dispatch = useDispatch();
   const error = useSelector(selectAuthError);
-
-
+  
+  
   const handleSubmit = (values, actions) => {
     // console.log(values);
     const userData = {
@@ -78,8 +78,7 @@ const LoginForm = () => {
         </Form>
       </Formik>
 
-      {error && <p>{error}</p>}
-      {/* {isLoggedIn && (error && <p>{error}</p>)} */}
+      {error && <p>Password is not correct. Try again</p>}
     </main>
   );
 };
